@@ -27,7 +27,27 @@ class Employees extends \Dao\Table
     
             return self::executeNonQuery($InsSql, $insParams);
     }
-   
+      /**Actualizar */
+    
+      public static function updateEmployee(
+        $EmployeeID,
+        $FirstName,
+        $LastName,
+        $HireDate,
+        $DepartmentID
+    ) {
+        $UpdSql = "UPDATE Employees set FirstName = :FirstName, LastName = :LastName, HireDate = :HireDate, DepartmentID= :DepartmentID where  EmployeeID = : EmployeeID;";
+        $updParams = [
+            'EmployeeID' => $EmployeeID,
+            'FirstName' => $FirstName,
+            'LastName' => $LastName,
+            'HireDate' => $HireDate,
+            'DepartmentID' => $DepartmentID
+        ];
+
+        return self::executeNonQuery($UpdSql, $updParams);
+    }
+    
 
     /**Lista */
 
