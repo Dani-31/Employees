@@ -4,32 +4,31 @@ namespace Dao\Employees;
 
 class Employees extends \Dao\Table
 {
-    
-         /**Nuevo*/
+     /**Nuevo*/
 
     public static function createEmployee(
         $FirstName,
         $LastName,
         $HireDate,
         $DepartmentID
-        ) {
-            $InsSql = "INSERT INTO Employees (FirstName, LastName, HireDate,DepartmentID)
-             value (:FirstName, :LastName, :HireDate, :DepartmentID);";
-            $insParams = [
-              
-                'FirstName' => $FirstName,
-                'LastName' => $LastName,
-                'HireDate' => $HireDate,
-                'DepartmentID' => $DepartmentID
-           
-    
-            ];
-    
-            return self::executeNonQuery($InsSql, $insParams);
+    ) {
+        $InsSql = "INSERT INTO Employees (FirstName, LastName, HireDate,DepartmentID)
+         value (:FirstName, :LastName, :HireDate, :DepartmentID);";
+        $insParams = [
+          
+            'FirstName' => $FirstName,
+            'LastName' => $LastName,
+            'HireDate' => $HireDate,
+            'DepartmentID' => $DepartmentID
+       
+
+        ];
+
+        return self::executeNonQuery($InsSql, $insParams);
     }
-      /**Actualizar */
-    
-      public static function updateEmployee(
+     /**Actualizar */
+
+    public static function updateEmployee(
         $EmployeeID,
         $FirstName,
         $LastName,
@@ -47,7 +46,15 @@ class Employees extends \Dao\Table
 
         return self::executeNonQuery($UpdSql, $updParams);
     }
-    
+     /**Eliminar */
+
+    public static function deleteEmployees($EmployeeID)
+    {
+        $DelSql = "DELETE from Employeess where  EmployeeID = : EmployeeID;";
+        $delParams = ['EmployeeID' => $EmployeeID];
+        return self::executeNonQuery($DelSql, $delParams);
+    }
+
 
     /**Lista */
 
