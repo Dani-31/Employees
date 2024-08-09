@@ -153,7 +153,15 @@ class Employee extends PublicController{
                     "Ocurrio un error al actualizar el Employee",
                     $updResult
                 );
-           
+                break;
+            case "DEL":
+                $delResult = DaoEmployees::deleteEmployee($this->EmployeeID);
+                $this->validateDBOperation(
+                    "Employee eliminado correctamente",
+                    "Ocurrio un error al eliminar el Employee",
+                    $delResult
+                );
+                break;
         }
     }
 
