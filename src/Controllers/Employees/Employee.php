@@ -19,13 +19,14 @@ class Employee extends PublicController{
     ];
     private $modeDsc = "";
 
- 
+    /*Variables de la tabla */
+
     private $EmployeeID = 0; 
     private $FirstName = "";
     private $LastName = "";
     private $HireDate = ""; 
     private $DepartmentID = 0;
-    
+    /*Variables de la tabla */
 
     private $errors = array();
     private $xsrftk = "";
