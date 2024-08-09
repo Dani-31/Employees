@@ -139,7 +139,21 @@ class Employee extends PublicController{
                     "Ocurrio un error al insertar el Employee",
                     $insResult
                 );
-          
+                break;
+            case "UPD":
+                $updResult = DaoEmployees::updateEmployee(
+                    $this->FirstName,
+                    $this->LastName,
+                    $this->HireDate,
+                    $this->DepartmentID
+                  
+                );
+                $this->validateDBOperation(
+                    "Employee actualizado correctamente",
+                    "Ocurrio un error al actualizar el Employee",
+                    $updResult
+                );
+           
         }
     }
 
